@@ -13,9 +13,8 @@ public class Main {
 		int i = 0;
 		int count = 0;
 		int bLength = b.length();
-		int last = 0;
 		List<String> anagram = new ArrayList<String>();
-		Map<Integer, String> word = new HashMap<>();
+		
 
 		// add letter's chain to search in the string.
 		for (i= 0; i <bLength; i++) {
@@ -25,8 +24,11 @@ public class Main {
 		for (i = 0; i<a.length();i++) {
 			// if the letter is in the chain and not in my word to read, evaluate.
 			
+			if (valid(a,bLength,i,anagram)) {
+				count++;
+			}
 				
-			if( anagram.contains(String.valueOf(a.charAt(i)))==true && (word.containsValue(String.valueOf(a.charAt(i)))==false)){
+			/*if( anagram.contains(String.valueOf(a.charAt(i)))==true && (word.containsValue(String.valueOf(a.charAt(i)))==false)){
 				
 				word.put(i,String.valueOf(a.charAt(i)));
 				
@@ -37,30 +39,38 @@ public class Main {
 					//}
 					word.clear();
 				}
-			}
+			}*/
 		}
 		
 		return count;
 	}
 	
 	// Check if the letters are in sequence.
-	public static boolean valid(Map word, int n) {
-		boolean result = true;
-		for (int i =n; i>(n-word.size());i--){
+	public static boolean valid(String a, int bLength, int i, List anagram) {
+		Map<Integer, String> word = new HashMap<>();
+		int n = i+3;
+		while(i<n){
+			
 			//System.out.println(word.get(i)+" "+i);
-			if (word.get(i) == null) {
-				result = false;
+			if(i<a.length()) {
+				if( anagram.contains(String.valueOf(a.charAt(i)))==true && (word.containsValue(String.valueOf(a.charAt(i)))==false)){
+					word.put(i,String.valueOf(a.charAt(i)));
+				}
+			}else {
+				i = i+3;
 			}
+			i++;
 		}
-		return result;
+		if(word.size()==bLength) return true;
+		else return false;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//String a = "hol, que buena a mir";
+		String a = "holaaaaaaloa, que buena a mir";
 		//String a = "dd”";
-		String a = "“hola, que buena olalaao Laomir””";
+		//String a = "“hola, que buena ola la oLaomir””";
 		String b = "OAL";
 		
 		System.out.print(solution(a,b));
