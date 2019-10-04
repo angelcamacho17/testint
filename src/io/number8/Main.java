@@ -33,9 +33,10 @@ public class Main {
 	    				if(list.contains(element)==false) {
 	    					list.add(element);
 	    					// if the nails is not in the list, add it.
-	    					if(nails.contains(c[i])==false) {
-		    					nails.add(c[i]);
-		    				}
+	    					
+	    				}
+	    				if(nails.contains(c[i])==false) {
+	    					nails.add(c[i]);
 	    				}
 	    				
 	    			}
@@ -55,22 +56,22 @@ public class Main {
     }
     
     public static void main(String[] args) {
-    	/*int[] a = {1,4,5,8};
+    	int[] a = {1,4,5,8};
     	int[] b ={4,5,9,10};
-    	int[] c = {4,6,7,10,2};*/
+    	int[] c = {4,6,7,10,2};
     	
     	/*int[] a = {1,1,1,8};
     	int[] b ={4,5,9,10};
-    	int[] c = {0,2,0,3,9};*/
+    	int[] c = {0,2,0,9,3};*/
     	
     	
     	/*int[] a = {1,4,5,8};
     	int[] b ={4,5,9,10};
     	int[] c = {11,11,11,11,11};*/
     	
-    	int[] a = {1,15,6,1};
+    	/*int[] a = {1,15,6,1};
     	int[] b ={4,17,9,11};
-    	int[] c = {11,3,17,8,1};
+    	int[] c = {11,3,17,8,1};*/
     	
     	int n = 4;
     	int m = 5;
